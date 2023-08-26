@@ -54,7 +54,7 @@ def get(request):
         print(request.user)
         return JsonResponse({"msg": "welcome"})
     else:
-        return JsonResponse({"msg": "Login first"})
+        return JsonResponse({"msg": "Login first and then check the route"})
 
 
 def Logout(req):
