@@ -13,6 +13,7 @@ def Register(request):
         username = body['username']
         email = body['email']
         password = body['password']
+        role=body.get('role','student')
 
         # Check if a user with the provided email already exists
         is_user_present = User.objects.filter(email=email).exists()
@@ -21,7 +22,7 @@ def Register(request):
         else:
             hashed_pass = make_password(password)
             user = User.objects.create(
-                username=username, email=email, password=hashed_pass)
+                username=username, email=email, password=hashed_pass,role=role)
             return JsonResponse({"msg": "Registration Successful"})
     else:
         return JsonResponse({"msg": "Some error occurred"})
