@@ -20,22 +20,28 @@ def CreateEnrol(req,courseid):
         return JsonResponse({"msg":"some error occurred"})
     
 def GetStudentEnrolData(req):
-    if req.method=="GET":
-        studentid=req.user.id
-        user=User.objects.get(id=studentid)
-        enroldata=Enroll.objects.get(student=user) 
-        course=Course.objects.get(id=enroldata.course_id)
-        instructor=User.objects.get(id=course.instructor_id)
-        obj={
-            "name":user.username,
-            "coursename":course.title,
-            "description":course.description,
-            "instructor":instructor.username,
-            "date":enroldata.enrollmentdate
-        }
-        return JsonResponse(obj)
+    if req.method == "GET":
+        student = req.user
+        enroldata = Enroll.objects.filter(student=student)
+
+        serialized_data = []
+
+        for enrol in enroldata:
+            course = enrol.course
+            instructor = course.instructor
+            data = {
+                "name": student.username,
+                "coursename": course.title,
+                "description": course.description,
+                "instructor": instructor.username,
+                "date": enrol.enrollmentdate
+            }
+
+            serialized_data.append(data)
+
+        return JsonResponse({"data": serialized_data})
     else:
-        return JsonResponse({"msg":"some error occured"})
+        return JsonResponse({"msg": "Some error occurred"})
     
 def GetEnrol(req):
     Enroldata=Enroll.objects.all()
