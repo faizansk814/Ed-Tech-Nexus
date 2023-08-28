@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     'course',
     'enroll',
     'assignment',
+    'submission',
     'corsheaders'
 ]
 
