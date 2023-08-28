@@ -38,7 +38,13 @@ def Login(request):
             user = authenticate(email=email, password=password)
             if user is not None:
                 login(request, user)
-                return JsonResponse({"msg": "login succesfull"})
+                obj={
+                    "id":user.id,
+                    "name":user.username,
+                    "email":user.email,
+                    "role":user.role
+                }
+                return JsonResponse({"msg": "login succesfull","user":obj})
         except User.DoesNotExist:
             return JsonResponse({"msg": "User Does Not exist"})
     else:
@@ -57,7 +63,3 @@ def get(request):
     else:
         return JsonResponse({"msg": "Login first and then check the route"})
 
-
-def Logout(req):
-    logout(req)
-    return JsonResponse({"msg": "Logout succesfull"})
