@@ -34,6 +34,7 @@ def SeeAssignment(req):
             for assign in assignment:
                 obj={
                     "title":assign.title,
+                    "assignmentid":assign.id,
                     "description":assign.description,
                     "start_date":assign.start_date,
                     "end_date":assign.end_date,

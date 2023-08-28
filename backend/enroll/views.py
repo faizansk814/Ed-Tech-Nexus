@@ -8,13 +8,13 @@ User=get_user_model()
 
 def CreateEnrol(req,courseid):
     if req.method=="POST":
-        studentid=req.user.id
-        user=User.objects.get(id=studentid)
-        print(req.user.username,req.user.role)
-        if user.role=="instructor":
+        if req.user.role=="instructor":
             return JsonResponse({"msg":"You cannot enroll"})
         course=Course.objects.get(id=courseid)
-        enroll=Enroll.objects.create(student=user,course=course)
+        alreadyenrol=Enroll.objects.filter(student=req.user,course=course)
+        if alreadyenrol:
+            return JsonResponse({"msg":"You have already enrolled"})
+        enroll=Enroll.objects.create(student=req.user,course=course)
         return JsonResponse({"msg":"You have enrolled successfully"})
     else:
         return JsonResponse({"msg":"some error occurred"})
@@ -31,6 +31,7 @@ def GetStudentEnrolData(req):
             instructor = course.instructor
             data = {
                 "name": student.username,
+                "courseid":course.id,
                 "coursename": course.title,
                 "description": course.description,
                 "instructor": instructor.username,
