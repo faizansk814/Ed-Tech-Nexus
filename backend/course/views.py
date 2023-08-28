@@ -26,9 +26,36 @@ def CreateCourse(req):
 
 
 def GetCourse(req):
-    if req.method == "GET":
-        allcourses = Course.objects.all()
-        data = {"data": list(allcourses.values())}
-        return JsonResponse(data)
+    if (req.method == "GET"):
+        course_data = []
+        data = Course.objects.all().select_related("instructor")
+        for item in data:
+            instructors = {
+                "id": item.instructor.id,
+                "username": item.instructor.username
+            }
+            obj = {
+                "id": item.id,
+                'title': item.title,
+                "description": item.description,
+                "instructor": instructors
+            }
+            course_data.append(obj)
+
+        return JsonResponse({"data": course_data})
     else:
-        return JsonResponse({"msg":"some error occured"})
+        return JsonResponse({"msg": "Invalid request"}, status=405)
+
+
+# def getCourseByID(req, courseID):
+#     if (req.method == "GET"):
+#         courcedata = Course.objects.get(id=courseID)
+
+#         obj = {
+#             "id": courcedata.id,
+#             "title": courcedata.title,
+#             "description": courcedata.description
+#         }
+#         return JsonResponse(obj)
+#     else:
+#         return JsonResponse({"msg": "Invalid Request"}, status=405)
