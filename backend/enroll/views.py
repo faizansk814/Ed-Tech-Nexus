@@ -3,10 +3,12 @@ from django.contrib.auth import get_user_model
 from django.http import JsonResponse
 from .models import Enroll
 from course.models import Course
+from django.contrib.auth import get_user
 User=get_user_model()
 # Create your views here.
 
 def CreateEnrol(req,courseid):
+    print(req.user)
     if req.user.is_authenticated:
         if req.method=="POST":
             if req.user.role=="instructor":
@@ -23,8 +25,9 @@ def CreateEnrol(req,courseid):
         return JsonResponse({"msg":"Login First"})
     
 def GetStudentEnrolData(req):
+    student = get_user(req)
+    print(student)
     if req.method == "GET":
-        student = req.user
         enroldata = Enroll.objects.filter(student=student)
 
         serialized_data = []

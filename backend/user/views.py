@@ -14,6 +14,7 @@ def Register(request):
         email = body.get('email')
         password = body.get('password')
         role=body.get('role','student')
+        print(email,password)
 
         # Check if a user with the provided email already exists
         is_user_present = User.objects.filter(email=email).exists()
@@ -33,6 +34,7 @@ def Login(request):
         body = json.loads(request.body)
         email = body.get('email')
         password = body.get('password')
+        print(email,password)
         try:
             UserModel = User.objects.get(email=email)
             user = authenticate(email=email, password=password)
@@ -62,4 +64,6 @@ def get(request):
         return JsonResponse({"msg": "welcome"})
     else:
         return JsonResponse({"msg": "Login first and then check the route"})
+    
+    
 

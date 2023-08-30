@@ -1,5 +1,6 @@
 import { Component,OnInit } from '@angular/core';
 import { InstructorService } from 'src/app/service/instructor.service';
+import { StudentService } from 'src/app/service/student.service';
 
 @Component({
   selector: 'app-home',
@@ -10,14 +11,28 @@ export class HomeComponent implements OnInit{
 
   datas:any[]=[]
 
-  constructor(private instructorService:InstructorService){}
+  constructor(private instructorService:InstructorService,private studentService:StudentService){}
   ngOnInit(): void {
     this.getallcourse()
+    this.getStudentcourse()
   }
 
   getallcourse(){
     this.instructorService.getAllCourse().subscribe((res)=>{
       this.datas=res.data
+    })
+  }
+
+  HandleClick(id:number){
+    this.studentService.enrolCourse(id).subscribe((res)=>{
+      console.log(res)
+      alert(res.msg)
+    })
+  }
+
+  getStudentcourse(){
+    this.studentService.getStudentCourse().subscribe((res)=>{
+      console.log(res)
     })
   }
 

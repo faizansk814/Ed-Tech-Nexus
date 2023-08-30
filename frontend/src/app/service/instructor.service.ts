@@ -13,4 +13,5 @@ export class InstructorService {
     const geturl=`${this.url}/course/get`
     return this.http.get<any>(geturl)
   }
+
 }
