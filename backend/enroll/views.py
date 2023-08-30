@@ -20,7 +20,7 @@ def CreateEnrol(req,courseid):
         else:
             return JsonResponse({"msg":"some error occurred"})
     else:
-        return JsonResponse({"Login First"})
+        return JsonResponse({"msg":"Login First"})
     
 def GetStudentEnrolData(req):
     if req.method == "GET":
