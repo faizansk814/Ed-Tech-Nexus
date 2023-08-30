@@ -2,14 +2,17 @@ from django.shortcuts import render
 from django.http import JsonResponse
 from assignment.models import Assignment
 from .models import Submission
+from django.contrib.auth import get_user_model
 import json
+User=get_user_model()
 
 # Create your views here.
 def SubmitAssignment(req,assid):
     if req.method=="POST":
         body=json.loads(req.body)
         submission_link=body.get('submission_link')
-        user=req.user
+        userid=req.userid
+        user=User.objects.get(id=userid)
         assignment=Assignment.objects.get(id=assid)
         submission=Submission.objects.create(student=user,assignment=assignment,submission_link=submission_link)
         return JsonResponse({"msg":"Submitted"})
