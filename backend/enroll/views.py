@@ -3,29 +3,27 @@ from django.contrib.auth import get_user_model
 from django.http import JsonResponse
 from .models import Enroll
 from course.models import Course
-from django.contrib.auth import get_user
 User=get_user_model()
 # Create your views here.
 
 def CreateEnrol(req,courseid):
-    print(req.user)
-    if req.user.is_authenticated:
+        userid=req.userid
+        user=User.objects.get(id=userid)
         if req.method=="POST":
-            if req.user.role=="instructor":
+            if user.role=="instructor":
                 return JsonResponse({"msg":"You cannot enroll"})
             course=Course.objects.get(id=courseid)
-            alreadyenrol=Enroll.objects.filter(student=req.user,course=course)
+            alreadyenrol=Enroll.objects.filter(student=user,course=course)
             if alreadyenrol:
                 return JsonResponse({"msg":"You have already enrolled"})
-            enroll=Enroll.objects.create(student=req.user,course=course)
+            enroll=Enroll.objects.create(student=user,course=course)
             return JsonResponse({"msg":"You have enrolled successfully"})
         else:
             return JsonResponse({"msg":"some error occurred"})
-    else:
-        return JsonResponse({"msg":"Login First"})
     
 def GetStudentEnrolData(req):
-    student = get_user(req)
+    student = User.objects.get(id=req.userid)
+    print(student)
     print(student)
     if req.method == "GET":
         enroldata = Enroll.objects.filter(student=student)
@@ -38,6 +36,7 @@ def GetStudentEnrolData(req):
             data = {
                 "name": student.username,
                 "courseid":course.id,
+                "image":course.image,
                 "coursename": course.title,
                 "description": course.description,
                 "instructor": instructor.username,

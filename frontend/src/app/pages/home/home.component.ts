@@ -25,8 +25,13 @@ export class HomeComponent implements OnInit{
 
   HandleClick(id:number){
     this.studentService.enrolCourse(id).subscribe((res)=>{
-      console.log(res)
-      alert(res.msg)
+      if(res.msg=="You have enrolled successfully"){
+        alert(res.msg)
+        console.log(res)
+      }else{
+        console.log(res)
+        alert(res.msg)
+      }
     })
   }
 

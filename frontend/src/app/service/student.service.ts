@@ -1,11 +1,11 @@
 import { Injectable } from '@angular/core';
-import {HttpClient} from '@angular/common/http'
+import {HttpClient,HttpHeaders} from '@angular/common/http'
 import { Observable } from 'rxjs';
 @Injectable({
   providedIn: 'root'
 })
 export class StudentService {
-
+  token:string=localStorage.getItem("token")||""
   private url="https://ed-tech-backend-8way.onrender.com"
   constructor(private http:HttpClient) { }
 
@@ -20,12 +20,18 @@ export class StudentService {
   }
 
   enrolCourse(id:number):Observable<any>{
+    let headers=new HttpHeaders({
+      Authorization:`Bearer ${this.token}`
+    })
     const url=`http://localhost:8000/enrol/create/${id}`
-    return this.http.post<any>(url,{})
+    return this.http.post<any>(url,{},{headers})
   }
 
   getStudentCourse():Observable<any>{
-    const url=`http://localhost:8000/user/get`
-    return this.http.get<any>(url,{withCredentials:true})
+    let headers=new HttpHeaders({
+      Authorization: `Bearer ${this.token}`
+    })
+    const url=`http://localhost:8000/enrol/getstudent`
+    return this.http.get<any>(url,{headers})
   }
 }

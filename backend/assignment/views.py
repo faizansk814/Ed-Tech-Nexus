@@ -4,12 +4,15 @@ from course.models import Course
 from .models import Assignment
 from enroll.models import Enroll
 import json
+from django.contrib.auth import get_user_model
+User=get_user_model()
 # Create your views here.
 
 
 def CreateAssignment(req, courseid):
     if req.method == "POST":
-        user = req.user
+        userid = req.userid
+        user=User.objects.get(id=userid)
         if user.role == "student":
             return JsonResponse({"msg": "You are not authorized"})
         body = json.loads(req.body)
@@ -25,7 +28,8 @@ def CreateAssignment(req, courseid):
     
 def SeeAssignment(req):
     if req.method=="GET":
-        student=req.user
+        studentid=req.userid
+        student=User.objects.get(id=studentid)
         studentEnrolled=Enroll.objects.filter(student=student)
         data=[]
         for enroll in studentEnrolled:

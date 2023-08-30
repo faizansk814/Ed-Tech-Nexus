@@ -2,14 +2,14 @@ from django.shortcuts import render
 from .models import Course
 from django.http import JsonResponse
 from django.contrib.auth import get_user_model
-from django.contrib.auth.decorators import login_required
 import json
 User = get_user_model()
 
-@login_required
 def CreateCourse(req):
+    userid=req.userid
+    user=User.objects.get(id=userid)
     if req.method == "POST":
-        if req.user.role=="instructor":
+        if user.role=="instructor":
             body = json.loads(req.body)
             image=body.get('image')
             title = body.get('title')
@@ -17,7 +17,7 @@ def CreateCourse(req):
             alredycourse=Course.objects.filter(title=title).exists()
             if alredycourse:
                 return JsonResponse({"msg":"Course Already present"})
-            course = Course.objects.create(image=image,instructor=req.user, title=title, description=description)
+            course = Course.objects.create(image=image,instructor=user, title=title, description=description)
             return JsonResponse({"msg": "Course Created"})
         else:
             return JsonResponse({"msg":"You are not authorized"})
