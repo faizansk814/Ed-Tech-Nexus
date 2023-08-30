@@ -11,13 +11,13 @@ def CreateCourse(req):
     if req.method == "POST":
         if req.user.role=="instructor":
             body = json.loads(req.body)
+            image=body.get('image')
             title = body.get('title')
             description = body.get('description')
             alredycourse=Course.objects.filter(title=title).exists()
             if alredycourse:
                 return JsonResponse({"msg":"Course Already present"})
-            course = Course.objects.create(
-            instructor=req.user, title=title, description=description)
+            course = Course.objects.create(image=image,instructor=req.user, title=title, description=description)
             return JsonResponse({"msg": "Course Created"})
         else:
             return JsonResponse({"msg":"You are not authorized"})
@@ -45,6 +45,8 @@ def GetCourse(req):
         return JsonResponse({"data": course_data})
     else:
         return JsonResponse({"msg": "Invalid request"}, status=405)
+
+
 
 
 # def getCourseByID(req, courseID):
