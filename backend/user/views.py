@@ -12,7 +12,7 @@ def Register(request):
         body = json.loads(request.body)
         username = body.get('username')
         email = body.get('email')
-        password = body.get('passwod')
+        password = body.get('password')
         role=body.get('role','student')
 
         # Check if a user with the provided email already exists
