@@ -36,6 +36,7 @@ def GetCourse(req):
             }
             obj = {
                 "id": item.id,
+                "image":item.image,
                 'title': item.title,
                 "description": item.description,
                 "instructor": instructors
