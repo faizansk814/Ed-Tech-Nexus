@@ -10,9 +10,9 @@ User=get_user_model()
 def Register(request):
     if request.method == "POST":
         body = json.loads(request.body)
-        username = body['username']
-        email = body['email']
-        password = body['password']
+        username = body.get('username')
+        email = body.get('email')
+        password = body.get('passwod')
         role=body.get('role','student')
 
         # Check if a user with the provided email already exists
@@ -31,8 +31,8 @@ def Register(request):
 def Login(request):
     if request.method == "POST":
         body = json.loads(request.body)
-        email = body['email']
-        password = body['password']
+        email = body.get('email')
+        password = body.get('password')
         try:
             UserModel = User.objects.get(email=email)
             user = authenticate(email=email, password=password)
