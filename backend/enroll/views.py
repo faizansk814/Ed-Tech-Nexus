@@ -7,17 +7,20 @@ User=get_user_model()
 # Create your views here.
 
 def CreateEnrol(req,courseid):
-    if req.method=="POST":
-        if req.user.role=="instructor":
-            return JsonResponse({"msg":"You cannot enroll"})
-        course=Course.objects.get(id=courseid)
-        alreadyenrol=Enroll.objects.filter(student=req.user,course=course)
-        if alreadyenrol:
-            return JsonResponse({"msg":"You have already enrolled"})
-        enroll=Enroll.objects.create(student=req.user,course=course)
-        return JsonResponse({"msg":"You have enrolled successfully"})
+    if req.user.is_authenticated:
+        if req.method=="POST":
+            if req.user.role=="instructor":
+                return JsonResponse({"msg":"You cannot enroll"})
+            course=Course.objects.get(id=courseid)
+            alreadyenrol=Enroll.objects.filter(student=req.user,course=course)
+            if alreadyenrol:
+                return JsonResponse({"msg":"You have already enrolled"})
+            enroll=Enroll.objects.create(student=req.user,course=course)
+            return JsonResponse({"msg":"You have enrolled successfully"})
+        else:
+            return JsonResponse({"msg":"some error occurred"})
     else:
-        return JsonResponse({"msg":"some error occurred"})
+        return JsonResponse({"Login First"})
     
 def GetStudentEnrolData(req):
     if req.method == "GET":
