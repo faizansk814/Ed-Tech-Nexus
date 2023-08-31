@@ -39,22 +39,20 @@ def Login(request):
         password = body.get('password')
         secretkey=config("secret_key")
         print(email,password)
-        try:
-            UserModel = User.objects.get(email=email)
-            user = authenticate(email=email, password=password)
-            if user is not None:
-                payload = {
-                    'userid': user.id  # Token expiration time
-                }
-                token = jwt.encode(payload, secretkey, algorithm='HS256')
-                obj={
-                    "id":user.id,
-                    "name":user.username,
-                    "email":user.email,
-                    "role":user.role
-                }
-                return JsonResponse({"msg": "login succesfull","user":obj,"token":token})
-        except User.DoesNotExist:
+        user = authenticate(email=email, password=password)
+        if user is not None:
+            payload = {
+                'userid': user.id  # Token expiration time
+            }
+            token = jwt.encode(payload, secretkey, algorithm='HS256')
+            obj={
+                "id":user.id,
+                "name":user.username,
+                "email":user.email,
+                "role":user.role
+            }
+            return JsonResponse({"msg": "login succesfull","user":obj,"token":token})
+        else:
             return JsonResponse({"msg": "User Does Not exist"})
     else:
         return JsonResponse({"msg": "Wrong routes"})

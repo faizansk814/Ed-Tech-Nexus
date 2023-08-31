@@ -6,7 +6,7 @@ import { Observable } from 'rxjs';
 })
 export class StudentService {
   token:string=localStorage.getItem("token")||""
-  private url="https://ed-tech-backend-8way.onrender.com"
+  private url="http://localhost:8000"
   constructor(private http:HttpClient) { }
 
   registerStudent(obj:any):Observable<any>{
@@ -34,4 +34,22 @@ export class StudentService {
     const url=`http://localhost:8000/enrol/getstudent`
     return this.http.get<any>(url,{headers})
   }
+
+  getAllassignment():Observable<any>{
+    let headers=new HttpHeaders({
+      Authorization: `Bearer ${this.token}`
+    })
+    let url=`http://localhost:8000/assignment/get`
+    return this.http.get<any>(url,{headers})
+  }
+
+  getParticular(id:any):Observable<any>{
+    let headers=new HttpHeaders({
+      Authorization: `Bearer ${this.token}`
+    })
+    const url=`${this.url}/assignment/see/${id}`
+    return this.http.get<any>(url,{headers})
+  }
+
+  
 }

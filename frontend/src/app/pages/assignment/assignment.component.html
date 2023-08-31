@@ -1,0 +1,8 @@
+<div class="grid grid-cols-2">
+    <div *ngFor="let data of datas">
+        <h1>{{data.title}}</h1>
+        <p>{{data.start_date}}</p>
+        <p>{{data.end_date}}</p>
+        <button (click)="HandleClick(data.assignmentid)">View Assingment</button>
+    </div>
+</div>

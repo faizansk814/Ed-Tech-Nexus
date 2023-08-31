@@ -1,11 +1,11 @@
-import { Component } from '@angular/core';
+import { Component,OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-navbar',
   templateUrl: './navbar.component.html',
   styleUrls: ['./navbar.component.css']
 })
-export class NavbarComponent {
+export class NavbarComponent implements OnInit {
   isLoggedIn = false; // Set this based on login status
   userName = 'John Doe'; // Set the user's name
 
@@ -13,7 +13,8 @@ export class NavbarComponent {
 
   constructor() {}
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+  }
   Onclick(){
      this.isLoggedIn=!this.isLoggedIn
      console.log(this.isLoggedIn)

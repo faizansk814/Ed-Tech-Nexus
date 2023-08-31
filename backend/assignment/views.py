@@ -48,6 +48,24 @@ def SeeAssignment(req):
         return JsonResponse({"data":data})
     else:
         return JsonResponse({"msg":"some error"})
+    
+
+def ParticularAssignment(req,assid):
+    if req.method=="GET":
+        assignment=Assignment.objects.get(id=assid)
+        obj={
+            "id":assignment.id,
+            "title":assignment.title,
+            "description":assignment.description,
+            "start_date":assignment.start_date,
+            "end_date":assignment.end_date
+        }
+        return JsonResponse({"data":obj})
+    else:
+        return JsonResponse({"msg":"some error occured"})
+
+
+
                 
             
 

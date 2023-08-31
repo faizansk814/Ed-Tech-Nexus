@@ -10,6 +10,8 @@ import { HttpClientModule } from '@angular/common/http';
 import { LoginComponent } from './pages/login/login.component';
 import { RegisterComponent } from './pages/register/register.component';
 import { StudentenrollComponent } from './pages/studentenroll/studentenroll.component';
+import { AssignmentComponent } from './pages/assignment/assignment.component';
+import { ParticularComponent } from './pages/particular/particular.component';
 
 @NgModule({
   declarations: [
@@ -19,7 +21,9 @@ import { StudentenrollComponent } from './pages/studentenroll/studentenroll.comp
     HomeComponent,
     LoginComponent,
     RegisterComponent,
-    StudentenrollComponent
+    StudentenrollComponent,
+    AssignmentComponent,
+    ParticularComponent
   ],
   imports: [
     BrowserModule,
