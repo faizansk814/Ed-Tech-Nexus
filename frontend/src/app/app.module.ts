@@ -12,6 +12,7 @@ import { RegisterComponent } from './pages/register/register.component';
 import { StudentenrollComponent } from './pages/studentenroll/studentenroll.component';
 import { AssignmentComponent } from './pages/assignment/assignment.component';
 import { ParticularComponent } from './pages/particular/particular.component';
+import { CoursenavbarComponent } from './components/coursenavbar/coursenavbar.component';
 
 @NgModule({
   declarations: [
@@ -23,7 +24,8 @@ import { ParticularComponent } from './pages/particular/particular.component';
     RegisterComponent,
     StudentenrollComponent,
     AssignmentComponent,
-    ParticularComponent
+    ParticularComponent,
+    CoursenavbarComponent
   ],
   imports: [
     BrowserModule,

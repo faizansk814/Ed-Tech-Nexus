@@ -8,7 +8,18 @@
     </div>
     <div class="space-x-2">
         <button class="  px-4 py-2 rounded-md hover:bg-gray-200 font-bold">Teach On LearnHub</button>
-        <button class=" px-4 py-2 rounded-md hover:bg-gray-200 font-bold">Udemy Business</button>
-        <button class=" px-4 py-2 rounded-md hover:bg-gray-200 font-bold">Login/Signup</button>
+        <button *ngIf="!toggleLogin" class=" px-4 py-2 rounded-md hover:bg-gray-200 font-bold">Udemy Business</button>
+        <a *ngIf="toggleLogin" href="/course" class=" px-4 py-2 rounded-md hover:bg-gray-200 font-bold">My Learnings</a>
+        <a
+        href="#"
+        class="text-amber-950 font-bold text-xl link_hover py-1 px-1"
+        >{{ showname }}</a
+      >
+      <button
+        (click)="toggleLogin ? logout() : rigisterRoute()"
+        class="px-4 py-2 rounded-md hover:bg-gray-200 font-bold"
+      >
+        {{ toggleLogin ? "LOGOUT" : "Login/Signup" }}
+      </button>
     </div>
 </nav>

@@ -58,9 +58,6 @@ def Login(request):
         return JsonResponse({"msg": "Wrong routes"})
 
 
-def Logout(req):
-    logout(req)
-    return JsonResponse({"msg": "Logout Succesful"})
 
 
     

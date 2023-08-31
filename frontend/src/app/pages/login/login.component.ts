@@ -19,6 +19,7 @@ export class LoginComponent {
       console.log(res)
       if(res.msg=="login succesfull"){
         localStorage.setItem("token",res.token)
+        localStorage.setItem("user",JSON.stringify(res.user))
         this.router.navigate(['/'])
       }
     })
