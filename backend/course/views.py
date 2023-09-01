@@ -50,15 +50,12 @@ def GetCourse(req):
 
 
 
-# def getCourseByID(req, courseID):
-#     if (req.method == "GET"):
-#         courcedata = Course.objects.get(id=courseID)
-
-#         obj = {
-#             "id": courcedata.id,
-#             "title": courcedata.title,
-#             "description": courcedata.description
-#         }
-#         return JsonResponse(obj)
-#     else:
-#         return JsonResponse({"msg": "Invalid Request"}, status=405)
+def getCourseByID(req):
+    if (req.method == "GET"):
+        userid=req.userid
+        instructor=User.objects.get(id=userid)
+        instructorcourses=Course.objects.filter(instructor=instructor)
+        data={"data":list(instructorcourses.values())}
+        return JsonResponse(data)
+    else:
+        return JsonResponse({"msg": "Invalid Request"}, status=405)

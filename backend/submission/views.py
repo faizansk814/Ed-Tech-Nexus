@@ -14,6 +14,9 @@ def SubmitAssignment(req,assid):
         userid=req.userid
         user=User.objects.get(id=userid)
         assignment=Assignment.objects.get(id=assid)
+        alreadysubmit=Submission.objects.filter(student=user,assignment=assignment).exists()
+        if alreadysubmit:
+            return JsonResponse({"msg":"You have already submitted the assignment"})
         submission=Submission.objects.create(student=user,assignment=assignment,submission_link=submission_link)
         return JsonResponse({"msg":"Submitted"})
     else:

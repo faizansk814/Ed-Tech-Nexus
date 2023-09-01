@@ -13,6 +13,9 @@ import { StudentenrollComponent } from './pages/studentenroll/studentenroll.comp
 import { AssignmentComponent } from './pages/assignment/assignment.component';
 import { ParticularComponent } from './pages/particular/particular.component';
 import { CoursenavbarComponent } from './components/coursenavbar/coursenavbar.component';
+import { InstructorComponent } from './pages/instructor/instructor.component';
+import { InstructorassignComponent } from './pages/instructorassign/instructorassign.component';
+import { CreateassignComponent } from './components/createassign/createassign.component';
 
 @NgModule({
   declarations: [
@@ -25,7 +28,10 @@ import { CoursenavbarComponent } from './components/coursenavbar/coursenavbar.co
     StudentenrollComponent,
     AssignmentComponent,
     ParticularComponent,
-    CoursenavbarComponent
+    CoursenavbarComponent,
+    InstructorComponent,
+    InstructorassignComponent,
+    CreateassignComponent
   ],
   imports: [
     BrowserModule,

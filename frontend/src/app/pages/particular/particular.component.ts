@@ -9,6 +9,7 @@ import { StudentService } from 'src/app/service/student.service';
 export class ParticularComponent implements OnInit {
   data:any={}
    assid=localStorage.getItem('id')
+   link!:string
   constructor(private studentService:StudentService){}
   ngOnInit(): void {
     this.getassignment()
@@ -18,6 +19,16 @@ export class ParticularComponent implements OnInit {
     this.studentService.getParticular(this.assid).subscribe((res)=>{
       console.log(res)
       this.data=res.data
+    })
+  }
+
+  HandleClick(id:number){
+    let obj={
+      submission_link:this.link
+    }
+    this.studentService.SubmitAssign(obj,id).subscribe((res)=>{
+      alert(res.msg)
+      console.log(res)
     })
   }
 
