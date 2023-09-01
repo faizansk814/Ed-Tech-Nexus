@@ -30,6 +30,7 @@ def SeeSubmission(req,assid):
         for sub in allsubmission:
             obj={
                 "id":sub.id,
+                "studentid":sub.student.id,
                 "studentname":sub.student.username,
                 "instructorname":assignment.course.instructor.username,
                 "coursename":assignment.course.title,

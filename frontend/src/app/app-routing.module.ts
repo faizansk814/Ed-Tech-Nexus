@@ -8,6 +8,7 @@ import { AssignmentComponent } from './pages/assignment/assignment.component';
 import { ParticularComponent } from './pages/particular/particular.component';
 import { InstructorComponent } from './pages/instructor/instructor.component';
 import { InstructorassignComponent } from './pages/instructorassign/instructorassign.component';
+import { SubmissionComponent } from './pages/submission/submission.component';
 
 const routes: Routes = [
   {path:'',component:HomeComponent},
@@ -17,7 +18,8 @@ const routes: Routes = [
   {path:'assignment',component:AssignmentComponent},
   {path:'particular',component:ParticularComponent},
   {path:'instructor',component:InstructorComponent},
-  {path:'instructorassign',component:InstructorassignComponent}
+  {path:'instructorassign',component:InstructorassignComponent},
+  {path:'submission',component:SubmissionComponent}
 ];
 
 @NgModule({

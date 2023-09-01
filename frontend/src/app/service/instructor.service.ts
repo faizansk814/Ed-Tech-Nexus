@@ -42,4 +42,12 @@ export class InstructorService {
 
   }
 
+  SeeSubmission(id:any){
+    let headers=new HttpHeaders({
+      Authorization:`Bearer ${this.token}`
+    })
+    const url=`${this.url}/sub/seeallsub/${id}`
+    return this.http.get<any>(url,{headers})
+  }
+
 }
