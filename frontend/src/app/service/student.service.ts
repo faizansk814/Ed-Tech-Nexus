@@ -23,6 +23,7 @@ export class StudentService {
     let headers=new HttpHeaders({
       Authorization:`Bearer ${this.token}`
     })
+    console.log(this.token,id)
     const url=`http://localhost:8000/enrol/create/${id}`
     return this.http.post<any>(url,{},{headers})
   }

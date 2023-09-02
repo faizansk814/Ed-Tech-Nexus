@@ -1,6 +1,7 @@
 import { Component,OnInit } from '@angular/core';
 import { InstructorService } from 'src/app/service/instructor.service';
 import { StudentService } from 'src/app/service/student.service';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-home',
@@ -28,11 +29,19 @@ export class HomeComponent implements OnInit{
   HandleClick(id:number){
     this.studentService.enrolCourse(id).subscribe((res)=>{
       if(res.msg=="You have enrolled successfully"){
-        alert(res.msg)
+        Swal.fire({
+          'icon':'success',
+          'title':`${res.msg}`,
+          'text':'You have enrolled Successfully'
+        })
         console.log(res)
       }else{
         console.log(res)
-        alert(res.msg)
+        Swal.fire({
+          'icon':'error',
+          'title':`${res.msg}`,
+          'text':`${res.msg}`
+        })
       }
     })
   }

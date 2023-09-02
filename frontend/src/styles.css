@@ -1,6 +1,21 @@
 /* You can add global styles to this file, and also import other style files */
+.button_pink:hover {
+    background-color: #f8f9fa;
+    outline: 2px solid #023047;
+    font-weight: bold;
+    font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+        "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+    transition: 0.3s ease-in-out;
+}
+
+.grayy {
+    background-color: #023047;
+}
+
+.dullwhite {
+    background-color: #f8f9fa;
+}
 
 @import 'tailwindcss/base';
 @import 'tailwindcss/components';
 @import 'tailwindcss/utilities';
-

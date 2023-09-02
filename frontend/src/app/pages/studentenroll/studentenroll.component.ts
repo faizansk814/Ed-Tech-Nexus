@@ -8,6 +8,7 @@ import { StudentService } from 'src/app/service/student.service';
 })
 export class StudentenrollComponent implements OnInit {
   datas:any[]=[]
+  isloading:boolean=true
   constructor(private studentService:StudentService){}
   ngOnInit(): void {
     this.getStudentcourse()
@@ -16,6 +17,7 @@ export class StudentenrollComponent implements OnInit {
     this.studentService.getStudentCourse().subscribe((res)=>{
       console.log(res)
       this.datas=res.data
+      this.isloading=false
     })
   }
 }

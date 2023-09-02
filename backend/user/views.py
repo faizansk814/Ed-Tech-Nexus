@@ -38,7 +38,9 @@ def Login(request):
         email = body.get('email')
         password = body.get('password')
         secretkey=config("secret_key")
-        print(email,password)
+        isUserpresent=User.objects.filter(email=email).exists()
+        if not isUserpresent:
+            return JsonResponse({"msg":"User Not present"})
         user = authenticate(email=email, password=password)
         if user is not None:
             payload = {
@@ -53,7 +55,7 @@ def Login(request):
             }
             return JsonResponse({"msg": "login succesfull","user":obj,"token":token})
         else:
-            return JsonResponse({"msg": "User Does Not exist"})
+            return JsonResponse({"msg": "Wrong Credintials"})
     else:
         return JsonResponse({"msg": "Wrong routes"})
 

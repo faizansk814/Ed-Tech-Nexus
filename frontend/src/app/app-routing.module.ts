@@ -9,6 +9,7 @@ import { ParticularComponent } from './pages/particular/particular.component';
 import { InstructorComponent } from './pages/instructor/instructor.component';
 import { InstructorassignComponent } from './pages/instructorassign/instructorassign.component';
 import { SubmissionComponent } from './pages/submission/submission.component';
+import { ProfileComponent } from './pages/profile/profile.component';
 
 const routes: Routes = [
   {path:'',component:HomeComponent},
@@ -19,7 +20,8 @@ const routes: Routes = [
   {path:'particular',component:ParticularComponent},
   {path:'instructor',component:InstructorComponent},
   {path:'instructorassign',component:InstructorassignComponent},
-  {path:'submission',component:SubmissionComponent}
+  {path:'submission',component:SubmissionComponent},
+  {path:'profile',component:ProfileComponent}
 ];
 
 @NgModule({

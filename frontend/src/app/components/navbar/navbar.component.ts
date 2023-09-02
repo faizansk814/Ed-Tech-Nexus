@@ -1,6 +1,6 @@
 import { Component,OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-
+import Swal from 'sweetalert2';
 @Component({
   selector: 'app-navbar',
   templateUrl: './navbar.component.html',
@@ -33,11 +33,14 @@ export class NavbarComponent implements OnInit {
     }
   }
   logout(): void {
-    localStorage.removeItem('user');
-    localStorage.removeItem('token');
+    localStorage.clear()
     this.showname = '';
     this.toggleLogin = false;
-    alert('Logout Succesfully');
+    Swal.fire({
+      'icon':'success',
+      'title':'Logout Successful',
+      'text':'You have logout succesfully'
+    })
     window.location.reload();
   }
 

@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { InstructorService } from 'src/app/service/instructor.service';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-createassign',
@@ -19,9 +20,21 @@ export class CreateassignComponent {
       end_date:this.end_date
     }
     this.instructorService.CreateAssignment(obj,this.courseid).subscribe((res)=>{
-      alert(res.msg)
-      console.log(res)
-      window.location.reload()
+      if(res.msg=="Assignment Created"){
+        Swal.fire({
+          'icon':'success',
+          'title':`${res.msg}`,
+          'text':'Assignment Created Successfully'
+        })
+        console.log(res)
+        window.location.reload()
+      }else{
+        Swal.fire({
+          'icon':'error',
+          'title':`${res.msg}`,
+          'text':`${res.msg}`
+        })
+      }
     })
   }
 
