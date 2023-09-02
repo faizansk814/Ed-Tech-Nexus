@@ -10,6 +10,7 @@ import { StudentService } from 'src/app/service/student.service';
 export class HomeComponent implements OnInit{
 
   datas:any[]=[]
+  isloading:boolean=true
 
   constructor(private instructorService:InstructorService,private studentService:StudentService){}
   ngOnInit(): void {
@@ -20,6 +21,7 @@ export class HomeComponent implements OnInit{
   getallcourse(){
     this.instructorService.getAllCourse().subscribe((res)=>{
       this.datas=res.data
+      this.isloading=false
     })
   }
 

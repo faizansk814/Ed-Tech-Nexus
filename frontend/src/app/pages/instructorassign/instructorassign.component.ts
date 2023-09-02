@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { InstructorService } from 'src/app/service/instructor.service';
-import { NgZone } from '@angular/core';
 import { Router } from '@angular/router';
 
 @Component({
@@ -11,6 +10,7 @@ import { Router } from '@angular/router';
 export class InstructorassignComponent implements OnInit {
   courseid = localStorage.getItem("id") || ""
   datas: any[] = []
+  isloading:boolean=true
 
   constructor(private instructorService: InstructorService, private router:Router) { }
   ngOnInit(): void {
@@ -21,6 +21,7 @@ export class InstructorassignComponent implements OnInit {
     this.instructorService.particularCourseAssign(this.courseid).subscribe((res) => {
       console.log(res)
       this.datas = res.data
+      this.isloading=false
     })
 
 

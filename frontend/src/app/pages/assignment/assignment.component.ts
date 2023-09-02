@@ -9,6 +9,7 @@ import { StudentService } from 'src/app/service/student.service';
 })
 export class AssignmentComponent implements OnInit {
   datas:any[]=[]
+  isloading:boolean=true
   constructor(private studentService:StudentService,private router:Router){}
   ngOnInit(): void {
     this.allAssignments()
@@ -16,6 +17,7 @@ export class AssignmentComponent implements OnInit {
   allAssignments(){
     this.studentService.getAllassignment().subscribe((res)=>{
       this.datas=res.data
+      this.isloading=false
     })
   }
 

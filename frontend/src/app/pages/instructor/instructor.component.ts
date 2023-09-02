@@ -9,6 +9,7 @@ import { InstructorService } from 'src/app/service/instructor.service';
 })
 export class InstructorComponent implements OnInit {
   datas:any[]=[]
+  isloading:boolean=true
   constructor(private instructorService:InstructorService,private router:Router){}
   ngOnInit(): void {
     this.getInstructorCourses()
@@ -17,6 +18,7 @@ export class InstructorComponent implements OnInit {
   getInstructorCourses(){
     this.instructorService.getInstructorCourse().subscribe((res)=>{
       this.datas=res.data
+      this.isloading=false
       console.log(res)
     })
   }

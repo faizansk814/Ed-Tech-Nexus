@@ -17,6 +17,7 @@ import { InstructorComponent } from './pages/instructor/instructor.component';
 import { InstructorassignComponent } from './pages/instructorassign/instructorassign.component';
 import { CreateassignComponent } from './components/createassign/createassign.component';
 import { SubmissionComponent } from './pages/submission/submission.component';
+import { LoaderComponent } from './components/loader/loader.component';
 
 @NgModule({
   declarations: [
@@ -33,7 +34,8 @@ import { SubmissionComponent } from './pages/submission/submission.component';
     InstructorComponent,
     InstructorassignComponent,
     CreateassignComponent,
-    SubmissionComponent
+    SubmissionComponent,
+    LoaderComponent
   ],
   imports: [
     BrowserModule,
