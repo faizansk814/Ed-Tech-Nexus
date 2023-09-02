@@ -59,3 +59,6 @@ def getCourseByID(req):
         return JsonResponse(data)
     else:
         return JsonResponse({"msg": "Invalid Request"}, status=405)
+    
+
+
