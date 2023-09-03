@@ -58,6 +58,14 @@ export class StudentService {
     })
     const url=`${this.url}/sub/submit/${id}`
     return this.http.post(url,obj,{headers})
+  }
+
+  getAnnouncement():Observable<any>{
+    let headers=new HttpHeaders({
+      Authorization: `Bearer ${this.token}`
+    })
+    const url=`${this.url}/announcement/get`
+    return this.http.get<any>(url,{headers})
 
   }
 

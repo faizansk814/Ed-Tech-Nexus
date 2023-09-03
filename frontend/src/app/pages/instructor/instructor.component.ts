@@ -19,6 +19,7 @@ export class InstructorComponent implements OnInit {
     this.instructorService.getInstructorCourse().subscribe((res)=>{
       this.datas=res.data
       this.isloading=false
+      localStorage.setItem("instructordata",JSON.stringify(res.data))
       console.log(res)
     })
   }

@@ -19,6 +19,9 @@ import { CreateassignComponent } from './components/createassign/createassign.co
 import { SubmissionComponent } from './pages/submission/submission.component';
 import { LoaderComponent } from './components/loader/loader.component';
 import { ProfileComponent } from './pages/profile/profile.component';
+import { AnnouncementComponent } from './pages/announcement/announcement.component';
+import { GetannouncementComponent } from './pages/getannouncement/getannouncement.component';
+import { CannouncementComponent } from './components/cannouncement/cannouncement.component';
 
 @NgModule({
   declarations: [
@@ -37,7 +40,10 @@ import { ProfileComponent } from './pages/profile/profile.component';
     CreateassignComponent,
     SubmissionComponent,
     LoaderComponent,
-    ProfileComponent
+    ProfileComponent,
+    AnnouncementComponent,
+    GetannouncementComponent,
+    CannouncementComponent
   ],
   imports: [
     BrowserModule,

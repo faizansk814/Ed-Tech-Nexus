@@ -10,6 +10,9 @@ import { InstructorComponent } from './pages/instructor/instructor.component';
 import { InstructorassignComponent } from './pages/instructorassign/instructorassign.component';
 import { SubmissionComponent } from './pages/submission/submission.component';
 import { ProfileComponent } from './pages/profile/profile.component';
+import { AnnouncementComponent } from './pages/announcement/announcement.component';
+import { GetannouncementComponent } from './pages/getannouncement/getannouncement.component';
+import { CannouncementComponent } from './components/cannouncement/cannouncement.component';
 
 const routes: Routes = [
   {path:'',component:HomeComponent},
@@ -21,7 +24,10 @@ const routes: Routes = [
   {path:'instructor',component:InstructorComponent},
   {path:'instructorassign',component:InstructorassignComponent},
   {path:'submission',component:SubmissionComponent},
-  {path:'profile',component:ProfileComponent}
+  {path:'profile',component:ProfileComponent},
+  {path:'announcement',component:AnnouncementComponent},
+  {path:'getannouncement',component:GetannouncementComponent},
+  {path:'createannouncement',component:CannouncementComponent}
 ];
 
 @NgModule({
