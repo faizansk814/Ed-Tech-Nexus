@@ -9,6 +9,7 @@ import { StudentService } from 'src/app/service/student.service';
 })
 export class AnnouncementComponent implements OnInit {
   datas:any[]=[]
+  isloading:boolean=true
   constructor(private studentService:StudentService,private router:Router){}
   ngOnInit(): void {
     this.getAllAnnouncement()
@@ -17,6 +18,7 @@ export class AnnouncementComponent implements OnInit {
   getAllAnnouncement(){
     this.studentService.getAnnouncement().subscribe((res)=>{
       this.datas=res.data
+      this.isloading=false
     })
   }
 

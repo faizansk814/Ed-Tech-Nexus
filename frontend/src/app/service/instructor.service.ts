@@ -50,4 +50,12 @@ export class InstructorService {
     return this.http.get<any>(url,{headers})
   }
 
+  CreateAnnouncement(obj:any,id:any):Observable<any>{
+    let headers=new HttpHeaders({
+      Authorization:`Bearer ${this.token}`
+    })
+    const url=`${this.url}/announcement/create/${id}`
+    return this.http.post(url,obj,{headers})
+  }
+
 }
