@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { InstructorService } from 'src/app/service/instructor.service';
+import {Assingment} from 'src/app/models/all.model'
 import Swal from 'sweetalert2';
 
 @Component({
@@ -14,7 +15,7 @@ export class CreateassignComponent {
   end_date!:any
   constructor(private instructorService:InstructorService){}
   HandleSubmit(){
-    let obj={
+    let obj:Assingment={
       title:this.title,
       description:this.description,
       end_date:this.end_date

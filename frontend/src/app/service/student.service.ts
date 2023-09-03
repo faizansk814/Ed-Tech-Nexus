@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import {HttpClient,HttpHeaders} from '@angular/common/http'
 import { Observable } from 'rxjs';
+import { Assingment, User } from '../models/all.model';
 @Injectable({
   providedIn: 'root'
 })
@@ -9,12 +10,12 @@ export class StudentService {
   private url="http://localhost:8000"
   constructor(private http:HttpClient) { }
 
-  registerStudent(obj:any):Observable<any>{
+  registerStudent(obj:User):Observable<any>{
     const url=`${this.url}/user/register`
     return this.http.post<any>(url,obj)
   }
 
-  loginstudent(obj:any):Observable<any>{
+  loginstudent(obj:User):Observable<any>{
     const url=`http://localhost:8000/user/login`
     return this.http.post<any>(url,obj)
   }
@@ -36,20 +37,20 @@ export class StudentService {
     return this.http.get<any>(url,{headers})
   }
 
-  getAllassignment():Observable<any>{
+  getAllassignment():Observable<{data:Assingment[]}>{
     let headers=new HttpHeaders({
       Authorization: `Bearer ${this.token}`
     })
     let url=`http://localhost:8000/assignment/get`
-    return this.http.get<any>(url,{headers})
+    return this.http.get<{data:Assingment[]}>(url,{headers})
   }
 
-  getParticular(id:any):Observable<any>{
+  getParticular(id:any):Observable<{data:Assingment}>{
     let headers=new HttpHeaders({
       Authorization: `Bearer ${this.token}`
     })
     const url=`${this.url}/assignment/see/${id}`
-    return this.http.get<any>(url,{headers})
+    return this.http.get<{data:Assingment}>(url,{headers})
   }
 
   SubmitAssign(obj:any,id:number):Observable<any>{

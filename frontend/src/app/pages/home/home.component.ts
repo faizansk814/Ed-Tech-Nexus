@@ -1,4 +1,5 @@
 import { Component,OnInit } from '@angular/core';
+import { Course } from 'src/app/models/all.model';
 import { InstructorService } from 'src/app/service/instructor.service';
 import { StudentService } from 'src/app/service/student.service';
 import Swal from 'sweetalert2';
@@ -16,11 +17,10 @@ export class HomeComponent implements OnInit{
   constructor(private instructorService:InstructorService,private studentService:StudentService){}
   ngOnInit(): void {
     this.getallcourse()
-    this.getStudentcourse()
   }
 
   getallcourse(){
-    this.instructorService.getAllCourse().subscribe((res)=>{
+    this.instructorService.getAllCourse().subscribe((res:{data:Course[]})=>{
       this.datas=res.data
       this.isloading=false
     })
@@ -43,12 +43,6 @@ export class HomeComponent implements OnInit{
           'text':`${res.msg}`
         })
       }
-    })
-  }
-
-  getStudentcourse(){
-    this.studentService.getStudentCourse().subscribe((res)=>{
-      console.log(res)
     })
   }
 

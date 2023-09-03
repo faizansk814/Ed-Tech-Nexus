@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { Course } from 'src/app/models/all.model';
 import { InstructorService } from 'src/app/service/instructor.service';
 
 @Component({
@@ -8,7 +9,7 @@ import { InstructorService } from 'src/app/service/instructor.service';
   styleUrls: ['./instructor.component.css']
 })
 export class InstructorComponent implements OnInit {
-  datas:any[]=[]
+  datas:Course[]=[]
   isloading:boolean=true
   constructor(private instructorService:InstructorService,private router:Router){}
   ngOnInit(): void {
@@ -16,7 +17,7 @@ export class InstructorComponent implements OnInit {
   }
 
   getInstructorCourses(){
-    this.instructorService.getInstructorCourse().subscribe((res)=>{
+    this.instructorService.getInstructorCourse().subscribe((res:{data:Course[]})=>{
       this.datas=res.data
       this.isloading=false
       localStorage.setItem("instructordata",JSON.stringify(res.data))

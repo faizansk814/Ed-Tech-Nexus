@@ -6,6 +6,7 @@ import { Component } from '@angular/core';
   styleUrls: ['./profile.component.css']
 })
 export class ProfileComponent {
+    user:any=JSON.parse(localStorage.getItem("user")||'{}')
     
 
 
