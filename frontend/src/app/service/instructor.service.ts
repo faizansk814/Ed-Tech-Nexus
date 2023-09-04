@@ -60,4 +60,12 @@ export class InstructorService {
     return this.http.post(url,obj,{headers})
   }
 
+  createCoursedata(obj:Course):Observable<any>{
+    let headers=new HttpHeaders({
+      Authorization:`Bearer ${this.token}`
+    })
+    const url=`${this.url}/course/create`
+    return this.http.post<any>(url,obj,{headers})
+  }
+
 }

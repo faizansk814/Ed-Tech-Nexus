@@ -14,9 +14,11 @@ import { AnnouncementComponent } from './pages/announcement/announcement.compone
 import { GetannouncementComponent } from './pages/getannouncement/getannouncement.component';
 import { CannouncementComponent } from './components/cannouncement/cannouncement.component';
 import { authguardGuard } from './guards/authguard.guard';
+import { CreatecourseComponent } from './components/createcourse/createcourse.component';
+import { roleGuard } from './guards/role.guard';
 
 const routes: Routes = [
-  {path:'',component:HomeComponent},
+  {path:'',canActivate:[roleGuard],component:HomeComponent},
   {path:'login',component:LoginComponent},
   {path:'register',component:RegisterComponent},
   {path:'course',canActivate:[authguardGuard],component:StudentenrollComponent},
@@ -28,7 +30,8 @@ const routes: Routes = [
   {path:'profile',canActivate:[authguardGuard],component:ProfileComponent},
   {path:'announcement',canActivate:[authguardGuard],component:AnnouncementComponent},
   {path:'getannouncement',canActivate:[authguardGuard],component:GetannouncementComponent},
-  {path:'createannouncement',canActivate:[authguardGuard],component:CannouncementComponent}
+  {path:'createannouncement',canActivate:[authguardGuard],component:CannouncementComponent},
+  {path:'createcourse',canActivate:[authguardGuard],component:CreatecourseComponent}
 ];
 
 @NgModule({

@@ -9,6 +9,7 @@ import Swal from 'sweetalert2';
 export class NavbarComponent implements OnInit {
   data = JSON.parse(localStorage.getItem('user') || '[]');
 
+
   constructor(private router: Router) {}
   showname: string = '';
   toggleLogin: boolean = false;

@@ -1,6 +1,8 @@
 <nav class="p-4 flex items-center justify-between shadow-2xl">
   <div class="flex items-center space-x-2 transition-transform transform hover:scale-105">
-    <img src="../../../assets/faizanlogo2.PNG" alt="Udemy Logo" class="w-28">
+    <a href="/">
+      <img src="../../../assets/faizanlogo2.PNG" alt="Udemy Logo" class="w-28">
+    </a>
   </div>
   <div class="flex-1 mx-4">
     <input type="text"
@@ -19,7 +21,7 @@
     <a *ngIf="toggleLogin" href="/course"
       class="px-4 py-2 rounded-md hover:bg-gray-200 hover:text-gray-800 font-bold transition-transform transform hover:scale-105 hover:transition-shadow">My
       Learnings</a>
-    <a href="#"
+    <a *ngIf="toggleLogin" href="/profile"
       class="px-4 py-2 rounded-md hover:bg-gray-200 hover:text-gray-800 font-bold transition-transform transform hover:scale-105 hover:transition-shadow">{{
       showname }}</a>
     <button (click)="toggleLogin ? logout() : rigisterRoute()"

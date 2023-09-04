@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { FormsModule } from '@angular/forms';
+import { FormsModule,ReactiveFormsModule } from '@angular/forms';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
@@ -23,6 +23,7 @@ import { AnnouncementComponent } from './pages/announcement/announcement.compone
 import { GetannouncementComponent } from './pages/getannouncement/getannouncement.component';
 import { CannouncementComponent } from './components/cannouncement/cannouncement.component';
 import { InstnavbarComponent } from './components/instnavbar/instnavbar.component';
+import { CreatecourseComponent } from './components/createcourse/createcourse.component';
 
 @NgModule({
   declarations: [
@@ -45,13 +46,15 @@ import { InstnavbarComponent } from './components/instnavbar/instnavbar.componen
     AnnouncementComponent,
     GetannouncementComponent,
     CannouncementComponent,
-    InstnavbarComponent
+    InstnavbarComponent,
+    CreatecourseComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    FormsModule
+    FormsModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
