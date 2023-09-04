@@ -1,10 +1,11 @@
 <app-navbar></app-navbar>
 <app-coursenavbar></app-coursenavbar>
+<hr class="my-2 border-t-2 border-black mx-auto w-3/4">
+<h1 class="text-center font-bold text-2xl">Your Courses</h1>
 <div class="mt-8 px-4">
-    <h2 class="text-2xl font-semibold mb-4">Your Courses</h2>
     <div class="flex justify-center items-start">
         <app-loader [isloading]="isloading"></app-loader>
-      </div>
+    </div>
     <div class="flex flex-wrap -mx-4">
         <!-- Course 1 -->
         <div *ngFor="let data of datas" class="w-1/4 px-4 mb-4">
@@ -15,5 +16,5 @@
                 <p class="font-semibold text-lg">Instructorname: {{data.instructor}}</p>
             </div>
         </div>
-   </div>
+    </div>
 </div>

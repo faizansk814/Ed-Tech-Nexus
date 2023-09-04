@@ -11,14 +11,12 @@ import Swal from 'sweetalert2';
 })
 export class HomeComponent implements OnInit {
 
-  datas: any[] = []
+  datas: Course[] = []
   isloading: boolean = true
-  carousel!:boolean
 
   constructor(private instructorService: InstructorService, private studentService: StudentService) { }
   ngOnInit(): void {
     this.getallcourse()
-    this.carousel=true
     
   }
 

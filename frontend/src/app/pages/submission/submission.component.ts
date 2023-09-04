@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Submission } from 'src/app/models/all.model';
 import { InstructorService } from 'src/app/service/instructor.service';
 
 @Component({
@@ -8,7 +9,7 @@ import { InstructorService } from 'src/app/service/instructor.service';
 })
 export class SubmissionComponent implements OnInit {
   assid=localStorage.getItem('subid')||""
-  datas:any[]=[]
+  datas:Submission[]=[]
 
   constructor(private instructorService:InstructorService){}
   ngOnInit(): void {
@@ -16,7 +17,7 @@ export class SubmissionComponent implements OnInit {
   }
 
   seeSubmission(){
-    this.instructorService.SeeSubmission(this.assid).subscribe((res)=>{
+    this.instructorService.SeeSubmission(this.assid).subscribe((res:{data:Submission[]})=>{
       this.datas=res.data
       console.log(res)
     })
