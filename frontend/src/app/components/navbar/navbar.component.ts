@@ -32,6 +32,7 @@ export class NavbarComponent implements OnInit {
       this.router.navigate(['/login']);
     }
   }
+
   logout(): void {
     localStorage.clear()
     this.showname = '';

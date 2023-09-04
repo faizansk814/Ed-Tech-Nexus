@@ -13,21 +13,22 @@ import { ProfileComponent } from './pages/profile/profile.component';
 import { AnnouncementComponent } from './pages/announcement/announcement.component';
 import { GetannouncementComponent } from './pages/getannouncement/getannouncement.component';
 import { CannouncementComponent } from './components/cannouncement/cannouncement.component';
+import { authguardGuard } from './guards/authguard.guard';
 
 const routes: Routes = [
   {path:'',component:HomeComponent},
   {path:'login',component:LoginComponent},
   {path:'register',component:RegisterComponent},
-  {path:'course',component:StudentenrollComponent},
-  {path:'assignment',component:AssignmentComponent},
-  {path:'particular',component:ParticularComponent},
-  {path:'instructor',component:InstructorComponent},
-  {path:'instructorassign',component:InstructorassignComponent},
-  {path:'submission',component:SubmissionComponent},
-  {path:'profile',component:ProfileComponent},
-  {path:'announcement',component:AnnouncementComponent},
-  {path:'getannouncement',component:GetannouncementComponent},
-  {path:'createannouncement',component:CannouncementComponent}
+  {path:'course',canActivate:[authguardGuard],component:StudentenrollComponent},
+  {path:'assignment',canActivate:[authguardGuard],component:AssignmentComponent},
+  {path:'particular',canActivate:[authguardGuard],component:ParticularComponent},
+  {path:'instructor',canActivate:[authguardGuard],component:InstructorComponent},
+  {path:'instructorassign',canActivate:[authguardGuard],component:InstructorassignComponent},
+  {path:'submission',canActivate:[authguardGuard],component:SubmissionComponent},
+  {path:'profile',canActivate:[authguardGuard],component:ProfileComponent},
+  {path:'announcement',canActivate:[authguardGuard],component:AnnouncementComponent},
+  {path:'getannouncement',canActivate:[authguardGuard],component:GetannouncementComponent},
+  {path:'createannouncement',canActivate:[authguardGuard],component:CannouncementComponent}
 ];
 
 @NgModule({

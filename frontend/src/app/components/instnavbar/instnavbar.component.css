@@ -1,0 +1,13 @@
+.buttoncheck {
+    background-color: #fefae0;
+    color: black;
+    outline: 1px solid #023047;
+  }
+  .buttoncheck:hover {
+    background-color: #023047;
+    color: white;
+    outline: 1px solid white;
+  }
+  .darkcolor {
+    background-color: #023047;
+  }

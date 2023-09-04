@@ -1,4 +1,4 @@
-import { Component,OnInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Course } from 'src/app/models/all.model';
 import { InstructorService } from 'src/app/service/instructor.service';
 import { StudentService } from 'src/app/service/student.service';
@@ -9,38 +9,41 @@ import Swal from 'sweetalert2';
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.css']
 })
-export class HomeComponent implements OnInit{
+export class HomeComponent implements OnInit {
 
-  datas:any[]=[]
-  isloading:boolean=true
+  datas: any[] = []
+  isloading: boolean = true
+  carousel!:boolean
 
-  constructor(private instructorService:InstructorService,private studentService:StudentService){}
+  constructor(private instructorService: InstructorService, private studentService: StudentService) { }
   ngOnInit(): void {
     this.getallcourse()
+    this.carousel=true
+    
   }
 
-  getallcourse(){
-    this.instructorService.getAllCourse().subscribe((res:{data:Course[]})=>{
-      this.datas=res.data
-      this.isloading=false
+  getallcourse() {
+    this.instructorService.getAllCourse().subscribe((res: { data: Course[] }) => {
+      this.datas = res.data
+      this.isloading = false
     })
   }
 
-  HandleClick(id:number){
-    this.studentService.enrolCourse(id).subscribe((res)=>{
-      if(res.msg=="You have enrolled successfully"){
+  HandleClick(id: number) {
+    this.studentService.enrolCourse(id).subscribe((res) => {
+      if (res.msg == "You have enrolled successfully") {
         Swal.fire({
-          'icon':'success',
-          'title':`${res.msg}`,
-          'text':'You have enrolled Successfully'
+          'icon': 'success',
+          'title': `${res.msg}`,
+          'text': 'You have enrolled Successfully'
         })
         console.log(res)
-      }else{
+      } else {
         console.log(res)
         Swal.fire({
-          'icon':'error',
-          'title':`${res.msg}`,
-          'text':`${res.msg}`
+          'icon': 'error',
+          'title': `${res.msg}`,
+          'text': `${res.msg}`
         })
       }
     })

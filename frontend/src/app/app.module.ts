@@ -22,6 +22,7 @@ import { ProfileComponent } from './pages/profile/profile.component';
 import { AnnouncementComponent } from './pages/announcement/announcement.component';
 import { GetannouncementComponent } from './pages/getannouncement/getannouncement.component';
 import { CannouncementComponent } from './components/cannouncement/cannouncement.component';
+import { InstnavbarComponent } from './components/instnavbar/instnavbar.component';
 
 @NgModule({
   declarations: [
@@ -43,7 +44,8 @@ import { CannouncementComponent } from './components/cannouncement/cannouncement
     ProfileComponent,
     AnnouncementComponent,
     GetannouncementComponent,
-    CannouncementComponent
+    CannouncementComponent,
+    InstnavbarComponent
   ],
   imports: [
     BrowserModule,
