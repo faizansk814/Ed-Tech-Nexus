@@ -2,9 +2,6 @@
 
 Welcome to Ed_Tech_Nexus, your gateway to a modern and efficient Learning Management System. 🚀
 
-![image](https://github.com/faizansk814/Ed-Tech-Nexus/assets/119409470/a604834c-88ae-4ad6-b705-f9907179d839)
-
-
 ## Table of Contents
 - [Introduction](#introduction)
 - [Features](#features)
@@ -18,6 +15,8 @@ Welcome to Ed_Tech_Nexus, your gateway to a modern and efficient Learning Manage
 ## Introduction
 
 Ed_Tech_Nexus is more than just a Learning Management System; it's a dynamic educational platform that bridges the gap between students and instructors. With the power of AI and a stack of technologies learned within 30 days, we've crafted a solution that takes your learning experience to the next level.
+
+![image](https://github.com/faizansk814/Ed-Tech-Nexus/assets/119409470/a604834c-88ae-4ad6-b705-f9907179d839)
 
 ## Features
 
