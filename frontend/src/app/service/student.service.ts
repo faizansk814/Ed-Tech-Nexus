@@ -7,7 +7,7 @@ import { Announcement, Assingment, Submission, User } from '../models/all.model'
 })
 export class StudentService {
   token:string=localStorage.getItem("token")||""
-  private url="http://localhost:8000"
+  private url="https://ed-tech-backend-8way.onrender.com"
   constructor(private http:HttpClient) { }
 
   registerStudent(obj:User):Observable<any>{
@@ -16,7 +16,7 @@ export class StudentService {
   }
 
   loginstudent(obj:User):Observable<any>{
-    const url=`http://localhost:8000/user/login`
+    const url=`${this.url}/user/login`
     return this.http.post<any>(url,obj)
   }
 
@@ -25,7 +25,7 @@ export class StudentService {
       Authorization:`Bearer ${this.token}`
     })
     console.log(this.token,id)
-    const url=`http://localhost:8000/enrol/create/${id}`
+    const url=`${this.url}/enrol/create/${id}`
     return this.http.post<any>(url,{},{headers})
   }
 
@@ -33,7 +33,7 @@ export class StudentService {
     let headers=new HttpHeaders({
       Authorization: `Bearer ${this.token}`
     })
-    const url=`http://localhost:8000/enrol/getstudent`
+    const url=`${this.url}/enrol/getstudent`
     return this.http.get<any>(url,{headers})
   }
 
@@ -41,7 +41,7 @@ export class StudentService {
     let headers=new HttpHeaders({
       Authorization: `Bearer ${this.token}`
     })
-    let url=`http://localhost:8000/assignment/get`
+    let url=`${this.url}/assignment/get`
     return this.http.get<{data:Assingment[]}>(url,{headers})
   }
 

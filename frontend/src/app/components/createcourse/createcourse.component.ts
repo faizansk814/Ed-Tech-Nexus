@@ -11,10 +11,10 @@ import Swal from 'sweetalert2';
 })
 export class CreatecourseComponent {
   course!: FormGroup;
-  constructor(private fb: FormBuilder, private instructorService:InstructorService) {
+  constructor(private fb: FormBuilder, private instructorService: InstructorService) {
     this.courseCall();
   }
-  ngOnInit(): void {}
+  ngOnInit(): void { }
 
   courseCall() {
     this.course = this.fb.group({
@@ -26,15 +26,22 @@ export class CreatecourseComponent {
   OnSubmit() {
     console.log('clicked');
     if (this.course.valid) {
-      const data:Course = this.course.value;
+      const data: Course = this.course.value;
       console.log(data);
       this.instructorService.createCoursedata(data).subscribe((data) => {
-        console.log(data);
-        Swal.fire({
-          icon: 'success',
-          title: `Course Created Succesfully`,
-          text: `${data.msg}`,
-        });
+        if (data.msg == "Course Created") {
+          Swal.fire({
+            icon: 'success',
+            title: `Course Created Succesfully`,
+            text: `${data.msg}`,
+          });
+        }else{
+          Swal.fire({
+            icon: 'error',
+            title: `${data.msg}`,
+            text: `${data.msg}`,
+          });
+        }
       });
     }
   }

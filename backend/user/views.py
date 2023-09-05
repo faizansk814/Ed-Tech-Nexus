@@ -58,6 +58,10 @@ def Login(request):
             return JsonResponse({"msg": "Wrong Credintials"})
     else:
         return JsonResponse({"msg": "Wrong routes"})
+    
+
+def Welcome(req):
+    return JsonResponse({"msg":"Server Start"})
 
 
 
