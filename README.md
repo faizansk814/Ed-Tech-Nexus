@@ -2,7 +2,8 @@
 
 Welcome to Ed_Tech_Nexus, your gateway to a modern and efficient Learning Management System. 🚀
 
-![Alt text](image.png)
+![image](https://github.com/faizansk814/Ed-Tech-Nexus/assets/119409470/a604834c-88ae-4ad6-b705-f9907179d839)
+
 
 ## Table of Contents
 - [Introduction](#introduction)
