@@ -5,7 +5,10 @@
 <div class="flex justify-center items-start">
     <app-loader [isloading]="isloading"></app-loader>
 </div>
-<div class="grid grid-cols-3 mt-3 gap-4">
+<div *ngIf="nodata" class="flex justify-center">
+    <img class="w-2/4" [src]="images" alt="Error Image" />
+  </div>
+<div *ngIf="!nodata"  class="grid grid-cols-3 mt-3 gap-4">
     <div *ngFor="let data of datas"
         class="max-w-sm p-6 bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
         <a href="#">

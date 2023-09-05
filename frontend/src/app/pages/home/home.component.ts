@@ -16,8 +16,7 @@ export class HomeComponent implements OnInit {
 
   constructor(private instructorService: InstructorService, private studentService: StudentService) { }
   ngOnInit(): void {
-    this.getallcourse()
-    
+    this.getallcourse()  
   }
 
   getallcourse() {
@@ -46,6 +45,8 @@ export class HomeComponent implements OnInit {
       }
     })
   }
+
+
 
 
 }
