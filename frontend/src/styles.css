@@ -1,4 +1,10 @@
 /* You can add global styles to this file, and also import other style files */
+
+@import 'tailwindcss/base';
+@import 'tailwindcss/components';
+@import 'tailwindcss/utilities';
+@import 'animate.css';
+
 .button_pink:hover {
     background-color: #f8f9fa;
     outline: 2px solid #023047;
@@ -15,7 +21,3 @@
 .dullwhite {
     background-color: #f8f9fa;
 }
-
-@import 'tailwindcss/base';
-@import 'tailwindcss/components';
-@import 'tailwindcss/utilities';

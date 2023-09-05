@@ -16,6 +16,7 @@ export class HomeComponent implements OnInit {
 
   constructor(private instructorService: InstructorService, private studentService: StudentService) { }
   ngOnInit(): void {
+    this.serverStart()
     this.getallcourse()  
   }
 
@@ -43,6 +44,12 @@ export class HomeComponent implements OnInit {
           'text': `${res.msg}`
         })
       }
+    })
+  }
+
+  serverStart(){
+    this.studentService.serverStart().subscribe((res)=>{
+      console.log(res)
     })
   }
 

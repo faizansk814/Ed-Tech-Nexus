@@ -70,6 +70,12 @@ export class StudentService {
 
   }
 
+  serverStart():Observable<any>{
+    const url=`${this.url}/user/start`
+    return this.http.get<any>(url)
+    
+  }
+
 
   
 }

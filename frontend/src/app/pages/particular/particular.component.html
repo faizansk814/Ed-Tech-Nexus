@@ -3,7 +3,7 @@
 <div class="flex justify-center items-start">
   <app-loader [isloading]="isloading"></app-loader>
 </div>
-<div *ngIf="!isloading" class=" flex items-center justify-center">
+<div *ngIf="!isloading" class="animate__animated animate__zoomIn flex items-center justify-center">
     <div class="w-1/2 p-8 bg-white dark:bg-gray-800 shadow-md rounded-lg">
         <label for="" class="text-xl font-bold">Assignment Title:</label>
       <h1 class="text-3xl font-semibold mb-4">{{ data.title }}</h1>
