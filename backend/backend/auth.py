@@ -10,7 +10,7 @@ class AuthMiddleware:
         self.get_response = get_response
 
     def __call__(self, request):
-        excluded_urls = ['user/login', 'user/register','course/get']
+        excluded_urls = ['user/login', 'user/register','course/get','user/start']
         if any(request.path_info.endswith(url) for url in excluded_urls):
             return self.get_response(request)
 
