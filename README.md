@@ -62,6 +62,6 @@ We welcome contributions to make BrainBridge even better. Please check our [cont
 
 ## License
 
-BrainBridge is open-source and available under the MIT License. Feel free to use, modify, and share it.
+Ed_Tech_Nexus is open-source and available under the MIT License. Feel free to use, modify, and share it.
 
 Let's transform education together! 📚🌟
