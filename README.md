@@ -2,6 +2,8 @@
 
 Welcome to Ed_Tech_Nexus, your gateway to a modern and efficient Learning Management System. 🚀
 
+![Alt text](image.png)
+
 ## Table of Contents
 - [Introduction](#introduction)
 - [Features](#features)
@@ -54,11 +56,11 @@ Ready to experience the future of learning? Follow these simple steps:
 
 3. *Frontend Setup:* Head over to the frontend folder and follow the instructions in the README.md.
 
-4. *Launch BrainBridge:* Run the app, and start exploring the world of enhanced learning.
+4. *Launch Ed_tech_nexus:* Run the app, and start exploring the world of enhanced learning.
 
 ## Contributing
 
-We welcome contributions to make BrainBridge even better. Please check our [contribution guidelines](CONTRIBUTING.md) to get started.
+We welcome contributions to make Ed_tech_nexus even better. Please check our [contribution guidelines](CONTRIBUTING.md) to get started.
 
 ## License
 
